@@ -44,3 +44,46 @@ export const useDimension = () => {
 const maxScale = (scale : number, i : number, n : number) => Math.max(0, scale - i / n)
 
 const divideScale = (scale : number, i : number, n : number) => Math.min(1 / n, maxScale(scale, i, n)) * n 
+
+const sinify = (scale : number) : number => Math.sin(scale * Math.PI)
+
+export const useStyle = (scale : number, w : number, h : number) => {
+    const sf : number = sinify(scale)
+    const sf1 : number = divideScale(sf, 0, 2)
+    const sf2 : number = divideScale(sf, 1, 2)
+    const position = 'absolute'
+    const size : number = Math.min(w, h) / 10
+    const left : string = `${w / 2 - size / 2}px` 
+    const background : string = "#BDBDBD"
+    return {
+        circleStyle() {
+            const top : string = `${(h / 2 - size / 2) * sf1}px`
+            const width : string = `${size}px`
+            const height : string = `${size}px`
+            const borderRadius : string = `50%`
+            return {
+                position, 
+                left, 
+                top, 
+                width, 
+                height, 
+                background,
+                borderRadius  
+            }
+        }, 
+
+        boxStyle() {
+            const top : string = `${h / 2 - size / 2 + (h / 2 - size / 2) * sf2}px`
+            const width : string = `${size}px`
+            const height : string = `${size}px`
+            return {
+                width, 
+                height, 
+                position, 
+                top, 
+                left, 
+                background 
+            }           
+        }
+    } 
+}
