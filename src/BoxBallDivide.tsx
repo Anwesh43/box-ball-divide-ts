@@ -14,7 +14,7 @@ const BoxBallDivide = (props : BoxBallDivideProps) => {
     return (
         <React.Fragment>
             <div style = {boxStyle()}></div>
-            <div style = {circleStyle()}></div>
+            <div onClick = {() => props.onClick()}style = {circleStyle()}></div>
         </React.Fragment>
     )
 }

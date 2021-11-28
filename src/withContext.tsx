@@ -2,7 +2,7 @@ import React from 'react'
 import {
     useAnimatedScale,
     useDimension
-}
+} from './hooks'
 const withContext = (MyComponent : React.FC<any>) : React.FC<any> => {
     return () => {
         const {w, h} = useDimension()

@@ -54,10 +54,10 @@ export const useStyle = (scale : number, w : number, h : number) => {
     const position = 'absolute'
     const size : number = Math.min(w, h) / 10
     const left : string = `${w / 2 - size / 2}px` 
-    const background : string = "#BDBDBD"
+    const background : string = "#01579B"
     return {
         circleStyle() : CSSProperties {
-            const top : string = `${(h / 2 - size / 2) * sf1}px`
+            const top : string = `${(h / 2 - 4 * size / 3) * sf1}px`
             const width : string = `${size}px`
             const height : string = `${size}px`
             const borderRadius : string = `50%`
