@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, CSSProperties} from 'react'
 
 const delay : number = 20 
 const scGap : number = 0.02 
@@ -56,7 +56,7 @@ export const useStyle = (scale : number, w : number, h : number) => {
     const left : string = `${w / 2 - size / 2}px` 
     const background : string = "#BDBDBD"
     return {
-        circleStyle() {
+        circleStyle() : CSSProperties {
             const top : string = `${(h / 2 - size / 2) * sf1}px`
             const width : string = `${size}px`
             const height : string = `${size}px`
@@ -72,7 +72,7 @@ export const useStyle = (scale : number, w : number, h : number) => {
             }
         }, 
 
-        boxStyle() {
+        boxStyle() : CSSProperties {
             const top : string = `${h / 2 - size / 2 + (h / 2 - size / 2) * sf2}px`
             const width : string = `${size}px`
             const height : string = `${size}px`
